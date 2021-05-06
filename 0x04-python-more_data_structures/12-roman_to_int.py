@@ -14,7 +14,7 @@ def roman_to_int(roman_string):
         }
     r_length = len(roman_string)
     for i in range(r_length):
-        if i < r_length - 1 and key[roman_string[i]]< \
+        if i < r_length - 1 and key[roman_string[i]] < \
            key[roman_string[i + 1]]:
             res -= key[roman_string[i]]
         else:
