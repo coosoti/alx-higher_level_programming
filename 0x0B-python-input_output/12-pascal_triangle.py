@@ -12,21 +12,16 @@ def pascal_triangle(n):
     Return:
         pascal triangle - a list of lists
     """
-    p_triangle = []
-    r_prev = [1]
-    row = 0
 
     if n <= 0:
-        return []
-    while row < n - 1:
-        cur_row = []
-        cur_row.append(r_prev[0])
-        i = 0
-        while i < row:
-            cur_row.append(r_prev[i] + r_prev[i + 1])
-            i += 1
-        cur_row.append(r_prev[len(r_prev) - 1])
-        p_triangle.append(cur_row)
-        r_prev = cur_row
-        row += 1
+        return ""
+
+    p_triangle = [[1]]
+    for cur_row in range(1, n):
+        row = [1]
+        r_prev = p_triangle[cur_row - 1]
+        for el in range(1, cur_row):
+            row.append(r_prev[el] + r_prev[el - 1])
+        row.append(1)
+        p_triangle.append(row)
     return p_triangle
