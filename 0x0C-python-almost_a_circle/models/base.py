@@ -52,3 +52,19 @@ class Base:
                 list_objects.append(cls.to_dictionary(i))
         with open(filename, 'w', encoding='utf-8') as myFile:
             myFile.write(cls.to_json_string(list_objects))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns an instance with all attributes already set
+
+        Args:
+            dictionary (dict): dictionary of attributes to set
+        Returns:
+            the instance with all attributes set
+        """
+        if cls.__name__ == "Rectangle":
+            new_base = cls(1, 1)
+        elif cls.__name__ == "Square":
+            new_base = cls(1)
+        new_base.update(**dictionary)
+        return new_base
