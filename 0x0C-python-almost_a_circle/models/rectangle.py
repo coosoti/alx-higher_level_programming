@@ -120,3 +120,11 @@ class Rectangle(Base):
             for j in range(self.__width):
                 print('#', end="")
             print()
+
+    def __str__(self):
+        """Overrides the __str__ method to print specified informal string
+        representation of the Rectangle instance
+        """
+
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height)
