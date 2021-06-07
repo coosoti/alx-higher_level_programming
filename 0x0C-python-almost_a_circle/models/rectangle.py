@@ -107,3 +107,16 @@ class Rectangle(Base):
             the area of the current rectangle instance
         """
         return self.__width * self.__height
+
+    def display(self):
+        """Displays/prints the Rectangle instance with a character #
+        sign
+        """
+        for y in range(self.__y):
+            print()
+        for i in range(self.__height):
+            for x in range(self.__x):
+                print(' ', end="")
+            for j in range(self.__width):
+                print('#', end="")
+            print()
