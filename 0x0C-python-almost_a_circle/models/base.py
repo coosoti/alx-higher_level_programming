@@ -59,7 +59,7 @@ class Base:
 
         Args:
             dictionary (dict): dictionary of attributes to set
-        Returns:
+        Return:
             the instance with all attributes set
         """
         if cls.__name__ == "Rectangle":
@@ -68,3 +68,21 @@ class Base:
             new_base = cls(1)
         new_base.update(**dictionary)
         return new_base
+
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances from a file with JSON object
+
+        Return:
+            the instance list object with all instances initialized
+        """
+        filename = cls.__name__ + ".json"
+        new_list = []
+        try:
+            with open(filename, 'r', encoding='utf-8') as myFile:
+                new_list = cls.from_json_string(myFile.read())
+            for i, e in enumerate(new_list):
+                new_list[i] = cls.create(**new_list[i])
+        except:
+            pass
+        return new_list
