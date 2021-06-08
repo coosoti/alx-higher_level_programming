@@ -12,6 +12,7 @@ from models.rectangle import Rectangle
 from contextlib import redirect_stdout
 import inspect
 
+
 class TestRectangleDocstrings(unittest.TestCase):
     """Unittests the Rectangle class documentation"""
     @classmethod
@@ -31,6 +32,7 @@ class TestRectangleDocstrings(unittest.TestCase):
         """unittest for the presence of docstrings in all functions"""
         for func in self.rec_funcs:
             self.assertTrue(len(func[1].__doc__) > 0)
+
 
 class TestRectangle(unittest.TestCase):
     """unittest for the Rectangle class"""
